@@ -351,6 +351,12 @@ header#masthead #name-container {
 
 header#masthead .name.initial {
   text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 #fff;
+  cursor: pointer;
+}
+
+header#masthead .name.initial:hover {
+  -webkit-animation: rubberBand 0.8s;
+          animation: rubberBand 0.8s;
 }
 
 header#masthead .name.loaded {
@@ -365,8 +371,6 @@ header#masthead .name.loaded {
   width: fit-content;
   -webkit-animation: rubberBand 0.8s;
           animation: rubberBand 0.8s;
-  -webkit-transition: background ease-out 0.4s;
-  transition: background ease-out 0.4s;
 }
 
 @media (min-width: 450px) {

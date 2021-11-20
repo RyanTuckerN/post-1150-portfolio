@@ -334,6 +334,13 @@ header#masthead {
   .name.initial {
     text-shadow: -1px -1px 0 rgb(255, 255, 255), 1px -1px 0 rgb(255, 255, 255),
       -1px 1px 0 rgb(255, 255, 255), 1px 1px 0 #fff;
+      cursor: pointer;
+
+  }
+
+  .name.initial:hover {
+    animation: rubberBand 0.8s;
+      
   }
 
   .name.loaded {
@@ -345,7 +352,6 @@ header#masthead {
     -moz-text-fill-color: transparent;
     width: fit-content;
     animation: rubberBand 0.8s;
-    transition: background ease-out 0.4s;
     @include sm() {
       width: 420px;
     }

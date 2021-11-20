@@ -31,7 +31,6 @@ function animatedHeader() {
           }, 1000);
         }
       };
-      letter.addEventListener("mouseenter", handleEvent);
       letter.addEventListener("click", handleEvent);
     });
   }, 1150);
