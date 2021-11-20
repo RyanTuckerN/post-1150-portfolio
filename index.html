@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/canvas.css" />
+    <title>ryan tucker: webdev</title>
+  </head>
+
+  <body>
+    <nav>
+      <a id="logo" href="#masthead">Ryan Tucker</a>
+      <!-- <a id='logo' href="#masthead">Ryan Tucker</a> -->
+      <div id="nav-links">
+        <ul>
+          <li><a href="#about">About</a><span>&nbsp;&#183;</span></li>  
+          <li><a href="#technology">Skills</a><span>&nbsp;&#183;</span></li>  
+          <li><a href="#portfolio">Portfolio</a><span>&nbsp;&#183;</span></li>  
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <!-- <div class="demo">
+        <div class="menu-icon">
+          <input class="menu-icon__cheeckbox" type="checkbox" />
+
+          <div>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div> -->
+    </nav>
+    <!-- particles.js container -->
+    <div id="particles-js" class="particle-wrapper"></div>
+
+    <!-- stats - count particles -->
+    <!-- particles.js lib - https://github.com/VincentGarreau/particles.js -->
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- stats.js lib -->
+    <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+    <header id="masthead">
+      <div>
+        <h5>Hi, I'm...</h5>
+        <div id="name-container" class="name initial"></div>
+        <h4>Full Stack Web Developer</h4>
+      </div>
+    </header>
+    <main>
+      <section id="about">
+        <div class="container">
+          <hr />
+          <h1 class="scroll"><span>About</span></h1>
+          <div class="img-and-text">
+            <div id="about-image" class="scroll">
+              <img
+                id="portrait"
+                src="./assets/NickSupermodelPoseSmaller.jpg"
+                alt="Ryan Tucker portrait, smiling with blurred trees in the background"
+              />
+              <h5>
+                <i>creator</i> &#183; <i>learner</i> &#183;
+                <i>problem solver</i>
+              </h5>
+            </div>
+            <div class="about-text">
+              <p class="scroll">
+                I am a professional musician and former professor of music at
+                multiple Universities throughout Indiana. I am active and
+                respected in the midwest in multiple musical genres, and music
+                will always be central to my life. But by the end of 2020, I
+                knew it was time for a <i>change</i>.
+              </p>
+              <p class="scroll">
+                With the encouragement of friends and family, I enrolled in the
+                <i>Eleven Fifty Academy</i> 6 month intensive
+                <strong>Web Development</strong>
+                boot camp. I have always been eager to learn new things, but
+                this course took that enthusiasm to the next level. Not a day
+                has gone by that saw me out of the code.
+              </p>
+              <p class="scroll">
+                As a student in the Eleven Fifty Academy Web Development course,
+                I put to work my strengths and continued building towards my
+                goal of becoming a full stack web developer. What I lack in
+                <i>experience</i>, I more than make up for in
+                <strong>aptitude</strong>. I have a voracious hunger for
+                knowledge and learning how things work, and I am very excited to
+                continue on the path.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="technology">
+        <div class="container">
+          <hr />
+          <h1 class="scroll"><span class="secondary">Skills</span></h1>
+          <ul class="scroll" id="tech-mobile">
+            <li><span style="color: aquamarine">React</span></li>
+            <li><span style="color: rebeccapurple">Javascript</span></li>
+            <li><span style="color: dodgerblue">Material UI</span></li>
+            <li><span style="color: firebrick">HTML5</span></li>
+            <li><span style="color: palegreen">CSS3</span></li>
+            <li><span style="color: wheat">Git/Github</span></li>
+            <li><span style="color: chocolate">Socket.io</span></li>
+            <li><span style="color: lightcoral">Typescript</span></li>
+            <li><span style="color: lawngreen">JSON</span></li>
+            <li><span style="color: white">Bootstrap</span></li>
+            <li><span style="color: royalblue">Node.js</span></li>
+            <li><span style="color: seagreen">Express</span></li>
+            <li><span style="color: crimson">PostgreSQL</span></li>
+            <li><span style="color: hotpink">Sequelize</span></li>
+            <li><span style="color: honeydew">Algorithms</span></li>
+            <li><span style="color: steelblue">NPM</span></li>
+            <li><span style="color: tan">SASS</span></li>
+            <li><span style="color: tomato">ES6</span></li>
+            <li><span style="color: azure">Responsive layouts</span></li>
+            <li><span style="color: gold">React-Router</span></li>
+          </ul>
+          <div id="tech">
+            <p data-tech="React" class="xl">React</p>
+            <p data-tech="Javascript" class="xl">Javascript</p>
+            <p data-tech="Material UI" class="lg">Material UI</p>
+            <p data-tech="HTML5" class="lg">HTML5</p>
+            <p data-tech="CSS3" class="lg">CSS3</p>
+            <p data-tech="Git/Github" class="md">Git/Github</p>
+            <p data-tech="JSON" class="md">JSON</p>
+            <p data-tech="Socket.io" class="sm">Socket.io</p>
+            <p data-tech="Typescript" class="sm">Typescript</p>
+            <p data-tech="Bootstrap">Bootstrap</p>
+            <p data-tech="Node.js">Node.js</p>
+            <p data-tech="Express">Express</p>
+            <p data-tech="PostgreSQL">PostgreSQL</p>
+            <p data-tech="Sequelize">Sequelize</p>
+            <p data-tech="Algorithms">Algorithms</p>
+            <p data-tech="NPM">NPM</p>
+            <p data-tech="SASS">SASS</p>
+            <p data-tech="ES6">ES6</p>
+            <p data-tech="Responsive layouts">Responsive layouts</p>
+            <p data-tech="React-Router">React-Router</p>
+          </div>
+        </div>
+      </section>
+      <section id="portfolio">
+        <div class="container">
+          <hr />
+          <h1 class="scroll">Portfolio</h1>
+          <div class="project-container">
+            <div class="project">
+              <a href="https://firstcallapp.herokuapp.com" target="blank"
+                ><img src="./assets/firstCall.png" alt="" srcset=""
+              /></a>
+              <div class="background scroll">
+                <h4>FirstCall Web App</h4>
+                <span>Full CRUD app built on PERN stack</span>
+                <ul>
+                  <li>Material UI</li>
+                  <li>NodeMailer</li>
+                  <li>Advanced Sequelize</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project scroll">
+              <a
+                href="https://tmor-pet-tinder-client.herokuapp.com/"
+                target="_blank"
+                ><img src="./assets/petTinder.png" alt="" srcset=""
+              /></a>
+              <div class="background scroll">
+                <h4>Pet Tinder Web App</h4>
+                <span>Full CRUD app built on PERN stack</span>
+                <ul>
+                  <li>Material UI</li>
+                  <li>socket.io</li>
+                  <li>real-time alerts</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project scroll">
+              <a href="https://nick-tucker-bass.web.app/" target="_blank"
+                ><img src="./assets/ntb.png" alt="" srcset=""
+              /></a>
+              <div class="background scroll">
+                <h4>Musician Website</h4>
+                <span>Static website build with React</span>
+              </div>
+            </div>
+            <div class="project scroll">
+              <a href="https://giphy-search-engine.web.app/" target="_blank"
+                ><img src="./assets/GIPHY-api.png" alt="" srcset=""
+              /></a>
+              <div class="background scroll">
+                <h4>JavaScript API Project</h4>
+                <span>GIF search engine powered by GIPHY</span>
+              </div>
+            </div>
+            <div class="project scroll">
+              <a
+                href="https://ryantuckern.github.io/etch-a-sketch/"
+                target="_blank"
+                ><img src="./assets/pixels.png" alt="" srcset=""
+              /></a>
+              <div class="background scroll">
+                <h4>Pixels</h4>
+                <span>Beginner project using vanilla Javascript</span>
+              </div>
+            </div>
+            <div class="project scroll">
+              <a
+                href="https://ryantuckern.github.io/calculator/"
+                target="_blank"
+                ><img src="./assets/calculator.png" alt="" srcset=""
+              /></a>
+              <div class="background scroll">
+                <h4>Calculator</h4>
+                <span>Built with vanilla JavaScript</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="contact">
+        <div class="contact-container container">
+          <hr />
+          <h1 class="scroll">Contact</h1>
+          <form
+                id="contactForm"
+                action="https://formspree.io/f/xvodrbbz"
+                method="POST"
+              >
+                <!-- Email address input-->
+                <div class="input scroll" >
+                  <label for="email">Email address</label>
+                  <input
+                    class="form-control"
+                    placeholder="name@example.com"
+                    id="email"
+                    type="email"
+                    name="_replyto"
+                    data-sb-validations="required,email"
+                    required
+                  />
+                </div>
+                <!-- Message input-->
+                <div class="input">
+                  <label for="message">Message</label>
+                  <textarea
+                    class="form-control"
+                    id="message"
+                    name="message"
+                    type="text"
+                    placeholder="Enter your message here..."
+                    data-sb-validations="required"
+                    minlength="10em"
+                    required
+                  ></textarea>
+                 
+                <!-- Submit Button-->
+                <!-- <div class="d-grid"> -->
+                  <button
+                    class="btn btn-primary btn-xl"
+                    id="submitButton"
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+                <!-- </div> -->
+              </form>
+          
+
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+  <script src="js/canvas.js"></script>
+  <script src="js/headerLoad.js"></script>
+  <script src="js/scroll.js"></script>
+  <script src="js/wordCloud.js"></script>
+  <script>
+    [...document.querySelectorAll('section h1')].forEach(header=>{
+      header.style.display = 'inline-block'
+      header.addEventListener('mouseenter', ()=>{
+        header.classList.add('snap', 'animated-longer')
+      })
+      header.addEventListener('mouseout', ()=>{
+        header.classList.remove('snap', 'animated-longer')
+      })
+    })
+  </script>
+</html>

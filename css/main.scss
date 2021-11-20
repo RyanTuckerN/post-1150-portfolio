@@ -1,0 +1,781 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+#background-text {
+  font-family: "Fira Code", monospace;
+  max-height: 100vh;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+$colors: (
+  primary: #1aedd8,
+  secondary: #fd2155,
+  primary-trans: #1aedd860,
+  secondary-trans: #fd215460,
+  divider: rgba(255, 255, 255, 0.12),
+);
+
+$breakpoints: (
+  sm: 450px,
+  md: 650px,
+  lg: 950px,
+  xl: 1250px,
+);
+
+$padding: 15px;
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+@function getBreakpoint($breakpoint) {
+  @return map-get($breakpoints, $breakpoint);
+}
+
+@mixin sm {
+  @media (min-width: getBreakpoint(sm)) {
+    @content;
+  }
+}
+@mixin md {
+  @media (min-width: getBreakpoint(md)) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (min-width: getBreakpoint(lg)) {
+    @content;
+  }
+}
+@mixin xl {
+  @media (min-width: getBreakpoint(xl)) {
+    @content;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  outline: none;
+  transition: all ease-in-out .333s;
+}
+
+button {
+  background: none;
+  color: white;
+  border: 2px solid;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+  font-family: 'Montserrat' sans-serif;
+  border: 1px solid color(divider);
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+button:hover, button:focus{
+  box-shadow: inset 8em 0 0 0 color(secondary);
+}
+
+.primary {
+  color: color(primary);
+}
+
+.secondary {
+  color: color(secondary);
+}
+
+hr {
+  border-color: #00000000;
+  margin: 25px 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  // background-color: #121212;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include md() {
+    max-width: 850px;
+    display: block;
+  }
+}
+
+nav {
+  height: 40px;
+  width: 100vw;
+  // background-color: rgb(0, 0, 0);
+  padding: $padding;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  li span{
+    color: white;
+    font-size: 1.4em;
+
+  }
+  #logo {
+    text-transform: uppercase;
+  }
+  a {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 1.4em;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    display: inline-block;
+    position: relative;
+  }
+  a:after {    
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: color(secondary);
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+  a:hover:after { 
+    width: 100%; 
+    left: 0; 
+  }
+  
+  #nav-links {
+    li {
+      display: inline;
+      a {
+        font-size: 1.2em;
+      }
+    }
+  }
+}
+
+//🍔 hamburger menu //
+
+.demo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .menu-icon {
+    transform: scale(1.5);
+  }
+}
+
+.menu-icon {
+  position: relative;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+
+  .menu-icon__cheeckbox {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+    z-index: 2;
+    -webkit-touch-callout: none;
+    position: absolute;
+    opacity: 0;
+  }
+  div {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 22px;
+    height: 12px;
+  }
+  span {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 1px;
+    transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
+
+    &:first-of-type {
+      top: 0;
+    }
+    &:last-of-type {
+      bottom: 0;
+    }
+  }
+  &.active,
+  .menu-icon__cheeckbox:checked + div {
+    span {
+      &:first-of-type {
+        transform: rotate(45deg);
+        top: 5px;
+      }
+      &:last-of-type {
+        transform: rotate(-45deg);
+        bottom: 5px;
+      }
+    }
+  }
+
+  &.active:hover span:first-of-type,
+  &.active:hover span:last-of-type,
+  &:hover .menu-icon__cheeckbox:checked + div span:first-of-type,
+  &:hover .menu-icon__cheeckbox:checked + div span:last-of-type {
+    width: 22px;
+  }
+
+  &:hover {
+    // no need hover effect on mobile.
+    @media (min-width: 1024px) {
+      span:first-of-type {
+        width: 26px;
+      }
+
+      span:last-of-type {
+        width: 12px;
+      }
+    }
+  }
+}
+
+.display-none {
+  display: none;
+}
+
+header#masthead {
+  padding: calc(40px + 33vh) 0 0 1.2em;
+  height: 100vh;
+
+  #name-container {
+    padding: 5px 0;
+    min-width: 300px;
+    width: fit-content;
+    display: flex;
+    @include sm() {
+      width: 420px;
+    }
+    @include md() {
+      width: 620px;
+    }
+  }
+  .name.initial {
+    text-shadow: -1px -1px 0 rgb(255, 255, 255), 1px -1px 0 rgb(255, 255, 255),
+      -1px 1px 0 rgb(255, 255, 255), 1px 1px 0 #fff;
+  }
+
+  .name.loaded {
+    background: linear-gradient(45deg, color(primary), color(secondary));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    width: fit-content;
+    animation: rubberBand 0.8s;
+    transition: background ease-out 0.4s;
+    @include sm() {
+      width: 420px;
+    }
+    @include md() {
+      width: 600px;
+    }
+  }
+
+  .name.loaded:hover {
+    background-position: 620px;
+  }
+
+  .main-name-letter {
+    width: 100%;
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    font-size: 2.5em;
+    font-weight: 800;
+    @include sm() {
+      font-size: 3.5em;
+    }
+    @include md() {
+      font-size: 5em;
+    }
+  }
+
+  h4 {
+    text-transform: lowercase;
+  }
+  h4,
+  h5 {
+    color: white;
+    padding-left: 5px;
+  }
+  h5 {
+    font-size: 1.1em;
+    font-weight: 300;
+    font-style: italic;
+  }
+}
+
+//Body
+section {
+  // min-height: 50vh;
+  background-color: black;
+  color: white;
+  text-align: justify;
+
+  h1 {
+    text-transform: uppercase;
+    @include md() {
+      margin-left: 20px;
+    }
+    color: color(secondary);
+  }
+  p {
+    font-family: "Lora", serif;
+    text-indent: 1.3em;
+  }
+
+  h5 {
+    text-align: center;
+    padding: 10px 0;
+  }
+}
+
+$about-image-width: 280px;
+
+section#about {
+  height: calc(fit-content+30px);
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.8211659663865546) 33%,
+    rgba(0, 0, 0, 0.5998774509803921) 66%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  @include md() {
+    height: calc(60vh + 80px);
+  }
+  @include lg() {
+    height: calc(40vh + 80px);
+  }
+
+  .img-and-text {
+    max-width: 95vw;
+    @include md() {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      img {
+        margin: auto auto;
+        padding: 0 $padding;
+      }
+    }
+  }
+
+  .about-text {
+    max-width: 320px;
+    @include md() {
+      max-width: none;
+    }
+  }
+
+  #about-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  #portrait {
+    border-radius: 25px;
+    width: $about-image-width;
+    // @include sm(){
+    //   width: 420px;
+    // }
+  }
+
+  .icon-links {
+    display: inline-block;
+    img {
+      filter: invert(74%) sepia(70%) saturate(518%) hue-rotate(114deg)
+        brightness(95%) contrast(96%);
+      position: relative;
+      top: 7px;
+    }
+    @include md() {
+      margin-left: 3%;
+    }
+  }
+}
+
+section#technology {
+  height: 100%;
+  @include md() {
+    height: 550px;
+  }
+
+  #tech {
+    display: none;
+    z-index: 0;
+
+    @include md() {
+      display: block;
+      margin: 0;
+      position: absolute;
+      top: calc(160vh + 80px);
+      left: -45px;
+      height: calc(550px - 120px);
+      width: calc(100vw - 200px);
+    }
+    @include lg() {
+      top: calc(145vh + 60px);
+      width: calc(100vw - 400px);
+      left: 145px;
+    }
+    @include xl() {
+      width: calc(100vw - 30%);
+      left: 7.5%;
+    }
+  }
+
+  #tech-mobile {
+    position: relative;
+    list-style: none;
+    text-align: center;
+    font-family: "Fira Code", monospace;
+    text-transform: lowercase;
+    padding: 30px 0;
+    z-index: 100000;
+    cursor: default;
+    span {
+      transform: scale(1);
+      color: inherit;
+      transition: color 0.5s ease;
+    }
+    span.active {
+      color: color(secondary) !important;
+    }
+  }
+
+  p {
+    text-transform: lowercase;
+    position: absolute;
+    margin: 0;
+    // font-size: 1em;
+    font-family: "Fira Code", monospace;
+
+    color: rgba(192, 192, 192, 0.2);
+    filter: blur(0.8px);
+    transition: filter 1.2s ease, transform 0.9s ease-in-out,
+      text-shadow 0.4s ease, color 0.5s ease, top 5s ease-in-out,
+      left 10s ease-in-out;
+    transform: translateX(-50%), scale(1);
+    top: calc(50% - 1ex);
+    left: 100%;
+    // right: 100px;
+    // bottom: 200px;
+    white-space: nowrap;
+    text-shadow: none;
+    // margin-right: 100px;
+  }
+
+  .active-bubble {
+    color: color(primary);
+    filter: blur(0);
+    text-shadow: 4px 2px 4px color(secondary);
+    transform: scale(1.4);
+  }
+
+  .sm {
+    font-size: 20px;
+  }
+  .md {
+    font-size: 30px;
+  }
+  .lg {
+    font-size: 40px;
+  }
+  .xl {
+    font-size: 50px;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+section#portfolio {
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.5998774509803921) 33%,
+    rgba(0, 0, 0, 0.8211659663865546) 66%,
+    rgba(0, 0, 0, 1) 100%,
+  );
+  display: flex;
+  align-items: center;
+  .container {
+    max-width: 1000px;
+    h1 {
+      margin: 0 0 20px 0;
+
+      @include md() {
+        margin: 0 0 20px 20px;
+      }
+      @include lg() {
+        margin: 0 0 20px 100px;
+      }
+    }
+  }
+  hr {
+    margin-top: 0;
+  }
+
+  .project-container {
+    display: flex;
+    // background-color: rebeccapurple;
+    height: 100%;
+    width: 100%;
+    flex-flow: row wrap;
+    justify-content: space-around;
+  }
+  .project {
+    display: flex;
+    margin-bottom: 25px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+    a,
+    img {
+      object-fit: cover;
+      height: 250px;
+      width: 250px;
+      opacity: 0.4;
+      transition: all ease-out 0.666s;
+      border-radius: 25px;
+      z-index: 10;
+    }
+    a:hover,
+    img:hover {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    img:hover {
+      object-fit: cover;
+    }
+    .background {
+      position: absolute;
+      height: 250px;
+      width: 250px;
+      background-color: darken(color(primary), 10%);
+      object-fit: cover;
+      z-index: 1;
+      border-radius: 25px;
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+
+      span,
+      ul {
+        padding: 5px 0;
+      }
+
+      span,
+      li {
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.88em;
+      }
+    }
+  }
+}
+
+section#contact{
+  // height: 50vh;
+  background: none;
+  width: 100%;
+  padding: $padding;
+  display: flex;
+  display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+
+  .contact-container{
+    margin: 0;
+    padding: 0;
+  }
+  form{
+    padding: $padding;
+
+    .input{
+      // width: 60%;
+      display: flex;
+      flex-flow: column nowrap;
+    }
+    label{
+      font-family: 'Montserrat', sans-serif;
+    }
+    input, textarea{
+      margin: 5px 0;
+      padding: 5px;
+      width: 80vw;
+      min-width: 310px;
+      max-width: 800px;
+      background-color: #12121288;
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      border: solid color(divider) 1px;
+      border-radius: 5px;
+      padding: $padding;
+      resize: none;
+    }
+    input:focus, textarea:focus{
+      outline: solid color(primary-trans) 1px
+    }
+    button{
+      max-width: 100px;
+      margin: 10px 0 0 auto;
+    }
+    #message{
+      height: 10em;
+      text-align: start;
+    }
+
+  }
+}
+
+footer{
+  height: 200px;
+  background-color: #0a0a0a;
+}
+
+/// *** *** *** *** *** *** *** *** *** *** *** *** ///
+/// *** *** *** *** *** *** *** *** *** *** *** *** ///
+/// *** *** *** *** *** *** *** *** *** *** *** *** ///
+/// *** *** *** *** *** *** *** *** *** *** *** *** ///
+/// *** *** *** *** *** *** *** *** *** *** *** *** ///
+/// *** *** *** *** *** *** *** *** *** *** *** *** ///
+//FX
+
+.jiggle {
+  display: inline;
+  animation: rubberBand;
+
+}
+
+.snap {
+  animation: myAnim;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes myAnim {
+  0% {
+    animation-timing-function: ease-out;
+    transform: scale(1);
+    transform-origin: center center;
+  }
+
+  10% {
+    animation-timing-function: ease-in;
+    transform: scale(0.91);
+  }
+
+  17% {
+    animation-timing-function: ease-out;
+    transform: scale(0.98);
+  }
+
+  33% {
+    animation-timing-function: ease-in;
+    transform: scale(0.87);
+  }
+
+  45% {
+    animation-timing-function: ease-out;
+    transform: scale(1);
+  }
+}
+
+@keyframes rubberBand {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+.rubberBand {
+  animation-name: rubberBand;
+}
+
+.animated {
+  animation-duration: 0.666s;
+  animation-fill-mode: both;
+}
+
+.animated-longer {
+  animation-duration: 1.1s;
+  animation-fill-mode: both;
+}
+
+.scroll {
+  opacity: 0;
+  transition: opacity 500ms;
+}
+
+.scroll.scrolled {
+  opacity: 1;
+}
