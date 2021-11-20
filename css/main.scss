@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+:root {
+  color-scheme: dark;
+}
+
 #background-text {
   font-family: "Fira Code", monospace;
   max-height: 100vh;
@@ -7,6 +11,7 @@
   position: absolute;
   z-index: -1;
 }
+
 $colors: (
   primary: #1aedd8,
   secondary: #fd2155,
@@ -59,7 +64,7 @@ $padding: 15px;
   padding: 0;
   scroll-behavior: smooth;
   outline: none;
-  transition: all ease-in-out .333s;
+  transition: all ease-in-out 0.333s;
 }
 
 button {
@@ -69,13 +74,14 @@ button {
   line-height: 1;
   margin: 0.5em;
   padding: 1em 2em;
-  font-family: 'Montserrat' sans-serif;
+  font-family: "Montserrat" sans-serif;
   border: 1px solid color(divider);
   border-radius: 5px;
   text-transform: uppercase;
   font-weight: 700;
 }
-button:hover, button:focus{
+button:hover,
+button:focus {
   box-shadow: inset 8em 0 0 0 color(secondary);
 }
 
@@ -105,7 +111,7 @@ h6 {
 body {
   min-height: 100vh;
   overflow-x: hidden;
-  // background-color: #121212;
+  background-color: #000;
 }
 
 .container {
@@ -123,16 +129,15 @@ body {
 nav {
   height: 40px;
   width: 100vw;
-  // background-color: rgb(0, 0, 0);
   padding: $padding;
   position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  li span{
+  z-index: 100;
+  li span {
     color: white;
     font-size: 1.4em;
-
   }
   #logo {
     text-transform: uppercase;
@@ -147,7 +152,7 @@ nav {
     display: inline-block;
     position: relative;
   }
-  a:after {    
+  a:after {
     background: none repeat scroll 0 0 transparent;
     bottom: 0;
     content: "";
@@ -159,16 +164,54 @@ nav {
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
   }
-  a:hover:after { 
-    width: 100%; 
-    left: 0; 
+  a:hover:after {
+    width: 100%;
+    left: 0;
   }
-  
+
   #nav-links {
+    display: none;
+    ul {
+      margin-right: 5px;
+    }
     li {
       display: inline;
       a {
         font-size: 1.2em;
+      }
+    }
+    @include lg(){
+      display: block;
+    }
+  }
+
+  aside.top-drawer {
+    display: none;
+    
+  }
+  .animated-menu{
+    display: block;
+    animation: growDown 1s ease-in-out forwards;
+    transform-origin: top;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: fit-content;
+    background-color: #121212;
+    z-index: 100;
+    #nav-links-menu {
+      color: white;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      z-index: 101;
+      ul {
+        list-style: none;
+        padding: 40px;
+        li {
+          padding: 3px 0;
+        }
       }
     }
   }
@@ -176,13 +219,16 @@ nav {
 
 //🍔 hamburger menu //
 
-.demo {
+#hamburger-menu {
   display: flex;
   align-items: center;
   justify-content: center;
-
+  z-index: 10002;
   .menu-icon {
     transform: scale(1.5);
+  }
+  @include lg(){
+    display: none;
   }
 }
 
@@ -291,7 +337,7 @@ header#masthead {
   }
 
   .name.loaded {
-  background: linear-gradient(45deg, color(primary), color(secondary));
+    background: linear-gradient(45deg, color(primary), color(secondary));
     background-clip: text;
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -338,6 +384,15 @@ header#masthead {
     font-size: 1.1em;
     font-weight: 300;
     font-style: italic;
+  }
+  #link-container{
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  img{
+    filter: invert(100%) sepia(0%) saturate(2740%) hue-rotate(226deg) brightness(115%) contrast(101%)
   }
 }
 
@@ -442,7 +497,7 @@ section#technology {
 
   #tech {
     display: none;
-    z-index: 0;
+    z-index: 48;
 
     @include md() {
       display: block;
@@ -471,7 +526,7 @@ section#technology {
     font-family: "Fira Code", monospace;
     text-transform: lowercase;
     padding: 30px 0;
-    z-index: 100000;
+    z-index: 50;
     cursor: default;
     span {
       transform: scale(1);
@@ -537,7 +592,7 @@ section#portfolio {
     rgba(0, 0, 0, 0) 0%,
     rgba(0, 0, 0, 0.5998774509803921) 33%,
     rgba(0, 0, 0, 0.8211659663865546) 66%,
-    rgba(0, 0, 0, 1) 100%,
+    rgba(0, 0, 0, 1) 100%
   );
   display: flex;
   align-items: center;
@@ -619,33 +674,34 @@ section#portfolio {
   }
 }
 
-section#contact{
+section#contact {
   // height: 50vh;
   background: none;
   width: 100%;
   padding: $padding;
   display: flex;
   display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: center;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
 
-  .contact-container{
+  .contact-container {
     margin: 0;
     padding: 0;
   }
-  form{
+  form {
     padding: $padding;
 
-    .input{
+    .input {
       // width: 60%;
       display: flex;
       flex-flow: column nowrap;
     }
-    label{
-      font-family: 'Montserrat', sans-serif;
+    label {
+      font-family: "Montserrat", sans-serif;
     }
-    input, textarea{
+    input,
+    textarea {
       margin: 5px 0;
       padding: 5px;
       width: 80vw;
@@ -653,28 +709,28 @@ section#contact{
       max-width: 800px;
       background-color: #12121288;
       color: white;
-      font-family: 'Montserrat', sans-serif;
+      font-family: "Montserrat", sans-serif;
       border: solid color(divider) 1px;
       border-radius: 5px;
       padding: $padding;
       resize: none;
     }
-    input:focus, textarea:focus{
-      outline: solid color(primary-trans) 1px
+    input:focus,
+    textarea:focus {
+      outline: solid color(primary-trans) 1px;
     }
-    button{
+    button {
       max-width: 100px;
       margin: 10px 0 0 auto;
     }
-    #message{
+    #message {
       height: 10em;
       text-align: start;
     }
-
   }
 }
 
-footer{
+footer {
   height: 200px;
   background-color: #0a0a0a;
 }
@@ -690,7 +746,6 @@ footer{
 .jiggle {
   display: inline;
   animation: rubberBand;
-
 }
 
 .snap {
@@ -778,4 +833,18 @@ footer{
 
 .scroll.scrolled {
   opacity: 1;
+}
+
+@keyframes growDown {
+  0% {
+    transform: scaleY(0);
+  }
+
+  80% {
+    transform: scaleY(1.1);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
 }

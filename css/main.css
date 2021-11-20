@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+  color-scheme: dark;
+}
+
 #background-text {
   font-family: "Fira Code", monospace;
   max-height: 100vh;
@@ -14,8 +18,8 @@
   padding: 0;
   scroll-behavior: smooth;
   outline: none;
-  -webkit-transition: all ease-in-out .333s;
-  transition: all ease-in-out .333s;
+  -webkit-transition: all ease-in-out 0.333s;
+  transition: all ease-in-out 0.333s;
 }
 
 button {
@@ -25,14 +29,15 @@ button {
   line-height: 1;
   margin: 0.5em;
   padding: 1em 2em;
-  font-family: 'Montserrat' sans-serif;
+  font-family: "Montserrat" sans-serif;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 5px;
   text-transform: uppercase;
   font-weight: 700;
 }
 
-button:hover, button:focus {
+button:hover,
+button:focus {
   -webkit-box-shadow: inset 8em 0 0 0 #fd2155;
           box-shadow: inset 8em 0 0 0 #fd2155;
 }
@@ -63,6 +68,7 @@ h6 {
 body {
   min-height: 100vh;
   overflow-x: hidden;
+  background-color: #000;
 }
 
 .container {
@@ -101,6 +107,7 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 100;
 }
 
 nav li span {
@@ -142,6 +149,14 @@ nav a:hover:after {
   left: 0;
 }
 
+nav #nav-links {
+  display: none;
+}
+
+nav #nav-links ul {
+  margin-right: 5px;
+}
+
 nav #nav-links li {
   display: inline;
 }
@@ -150,7 +165,55 @@ nav #nav-links li a {
   font-size: 1.2em;
 }
 
-.demo {
+@media (min-width: 950px) {
+  nav #nav-links {
+    display: block;
+  }
+}
+
+nav aside.top-drawer {
+  display: none;
+}
+
+nav .animated-menu {
+  display: block;
+  -webkit-animation: growDown 1s ease-in-out forwards;
+          animation: growDown 1s ease-in-out forwards;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: #121212;
+  z-index: 100;
+}
+
+nav .animated-menu #nav-links-menu {
+  color: white;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 101;
+}
+
+nav .animated-menu #nav-links-menu ul {
+  list-style: none;
+  padding: 40px;
+}
+
+nav .animated-menu #nav-links-menu ul li {
+  padding: 3px 0;
+}
+
+#hamburger-menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -160,11 +223,18 @@ nav #nav-links li a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  z-index: 10002;
 }
 
-.demo .menu-icon {
+#hamburger-menu .menu-icon {
   -webkit-transform: scale(1.5);
           transform: scale(1.5);
+}
+
+@media (min-width: 950px) {
+  #hamburger-menu {
+    display: none;
+  }
 }
 
 .menu-icon {
@@ -351,6 +421,24 @@ header#masthead h5 {
   font-style: italic;
 }
 
+header#masthead #link-container {
+  width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+header#masthead img {
+  -webkit-filter: invert(100%) sepia(0%) saturate(2740%) hue-rotate(226deg) brightness(115%) contrast(101%);
+          filter: invert(100%) sepia(0%) saturate(2740%) hue-rotate(226deg) brightness(115%) contrast(101%);
+}
+
 section {
   background-color: black;
   color: white;
@@ -478,7 +566,7 @@ section#technology {
 
 section#technology #tech {
   display: none;
-  z-index: 0;
+  z-index: 48;
 }
 
 @media (min-width: 650px) {
@@ -515,7 +603,7 @@ section#technology #tech-mobile {
   font-family: "Fira Code", monospace;
   text-transform: lowercase;
   padding: 30px 0;
-  z-index: 100000;
+  z-index: 50;
   cursor: default;
 }
 
@@ -742,10 +830,11 @@ section#contact form .input {
 }
 
 section#contact form label {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
-section#contact form input, section#contact form textarea {
+section#contact form input,
+section#contact form textarea {
   margin: 5px 0;
   padding: 5px;
   width: 80vw;
@@ -753,14 +842,15 @@ section#contact form input, section#contact form textarea {
   max-width: 800px;
   background-color: #12121288;
   color: white;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   border: solid rgba(255, 255, 255, 0.12) 1px;
   border-radius: 5px;
   padding: 15px;
   resize: none;
 }
 
-section#contact form input:focus, section#contact form textarea:focus {
+section#contact form input:focus,
+section#contact form textarea:focus {
   outline: solid #1aedd860 1px;
 }
 
@@ -967,5 +1057,35 @@ footer {
 
 .scroll.scrolled {
   opacity: 1;
+}
+
+@-webkit-keyframes growDown {
+  0% {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+  80% {
+    -webkit-transform: scaleY(1.1);
+            transform: scaleY(1.1);
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+}
+
+@keyframes growDown {
+  0% {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+  80% {
+    -webkit-transform: scaleY(1.1);
+            transform: scaleY(1.1);
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
 }
 /*# sourceMappingURL=main.css.map */

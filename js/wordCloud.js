@@ -33,7 +33,6 @@ setInterval(function updateWordsPositions(){
 }, 8000);
 
 const skills = [...document.querySelectorAll('#tech-mobile li span')]
-console.log(skills)
 skills.forEach(skill=>{
   
   const skillBubble = document.querySelector(`[data-tech*="${skill.innerHTML}"]`)

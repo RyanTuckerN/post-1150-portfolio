@@ -8,13 +8,13 @@ particlesJS("particles-js", {
       },
     },
     color: {
-      value: "#ffffff",
+      value: ["#fd2155", '#1aedd8', '#1aedd8', '#fd2154'],
     },
     shape: {
       type: "circle",
       stroke: {
         width: 0,
-        color: "#000000",
+        color: "#fd2155",
       },
       polygon: {
         nb_sides: 12,
@@ -36,7 +36,7 @@ particlesJS("particles-js", {
       },
     },
     size: {
-      value: 47.34885849793636,
+      value: 25,
       random: true,
       anim: {
         enable: true,
@@ -48,7 +48,7 @@ particlesJS("particles-js", {
     line_linked: {
       enable: true,
       distance: 150,
-      color: "#ffffff",
+      color: "#fd2155",
       opacity: 0.4,
       width: 1,
     },
@@ -116,12 +116,10 @@ stats.domElement.style.left = "0px";
 stats.domElement.style.top = "0px";
 document.body.appendChild(stats.domElement);
 count_particles = document.querySelector(".js-count-particles");
-update = function () {
-  stats.begin();
-  stats.end();
-  if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
-    // count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
-  }
-  requestAnimationFrame(update);
-};
-requestAnimationFrame(update);
+// update = function () {
+//   stats.begin();
+//   stats.end();
+  
+//   requestAnimationFrame(update);
+// };
+// requestAnimationFrame(update);

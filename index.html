@@ -21,7 +21,7 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
-      <!-- <div class="demo">
+      <div id="hamburger-menu">
         <div class="menu-icon">
           <input class="menu-icon__cheeckbox" type="checkbox" />
 
@@ -30,7 +30,17 @@
             <span></span>
           </div>
         </div>
-      </div> -->
+      </div>
+      <aside id='top-drawer' class="top-drawer">
+        <div id="nav-links-menu">
+          <ul>
+            <li><a href="#about">About</a></li>  
+            <li><a href="#technology">Skills</a></li>  
+            <li><a href="#portfolio">Portfolio</a></li>  
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </aside>
     </nav>
     <!-- particles.js container -->
     <div id="particles-js" class="particle-wrapper"></div>
@@ -44,7 +54,11 @@
       <div>
         <h5>Hi, I'm...</h5>
         <div id="name-container" class="name initial"></div>
-        <h4>Full Stack Web Developer</h4>
+        <div id='link-container'>
+          <h4>Full Stack Web Developer</h4>
+          <a href="https://github.com/RyanTuckerN" target="_blank"><img src="/assets/GitHub-Mark-32px.png" alt="GitHub Logo"></a>
+          <a href="https://www.linkedin.com/in/ryan-nick-tucker-570b0020b/" target="_blank"><img src="/assets/Linkedin.png" alt="LinkedIn Logo"></a>
+        </div>
       </div>
     </header>
     <main>
@@ -279,15 +293,5 @@
   <script src="js/headerLoad.js"></script>
   <script src="js/scroll.js"></script>
   <script src="js/wordCloud.js"></script>
-  <script>
-    [...document.querySelectorAll('section h1')].forEach(header=>{
-      header.style.display = 'inline-block'
-      header.addEventListener('mouseenter', ()=>{
-        header.classList.add('snap', 'animated-longer')
-      })
-      header.addEventListener('mouseout', ()=>{
-        header.classList.remove('snap', 'animated-longer')
-      })
-    })
-  </script>
+  <script src="js/menu.js"></script>
 </html>
