@@ -19,6 +19,6 @@ setTimeout(() => {
     nameContainer.classList.add("loaded");
     letter.classList.remove(["initial"]);
     
-    letter.classList.add("loaded");
+    // letter.classList.add("loaded");
   }))
 }, 1150);
