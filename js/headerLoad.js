@@ -14,11 +14,17 @@ for (let i = 0; i < spans.length; i++) {
   }, 100 * i);
 }
 setTimeout(() => {
-  document.querySelectorAll('.main-name-letter').forEach((letter=>{
-    nameContainer.classList.remove(["initial"]);
+  document.querySelectorAll(".main-name-letter").forEach((letter) => {
+    nameContainer.classList.remove("initial");
     nameContainer.classList.add("loaded");
-    letter.classList.remove(["initial"]);
-    
-    // letter.classList.add("loaded");
-  }))
+    letter.addEventListener("mouseenter", () => {
+      // letter.classList.add("snap", "animated-longer");
+      console.dir(letter)
+      letter.style.color='red'
+      letter.style.textShadow = 'none'
+    });
+    letter.addEventListener("mouseout", () => {
+      letter.classList.remove("snap", "animated-longer");
+    });
+  });
 }, 1150);
