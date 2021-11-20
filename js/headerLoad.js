@@ -18,7 +18,7 @@ function animatedHeader() {
     letters.forEach((letter) => {
       nameContainer.classList.remove("initial");
       nameContainer.classList.add("loaded");
-      letter.addEventListener("mouseenter", (e) => {
+      const handleEvent = () => {
         letter.classList.remove("initial");
         letter.style.textShadow = "none";
         if (
@@ -29,7 +29,9 @@ function animatedHeader() {
             animatedHeader();
           }, 1000);
         }
-      });
+      }
+      letter.addEventListener("mouseenter", handleEvent);
+      letter.addEventListener("click", handleEvent);
     });
   }, 1150);
 }
