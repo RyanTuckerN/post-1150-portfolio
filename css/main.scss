@@ -291,7 +291,7 @@ header#masthead {
   }
 
   .name.loaded {
-    background: linear-gradient(45deg, color(primary), color(secondary));
+  background: linear-gradient(45deg, color(primary), color(secondary));
     background-clip: text;
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -594,7 +594,7 @@ section#portfolio {
       position: absolute;
       height: 250px;
       width: 250px;
-      background-color: darken(color(primary), 10%);
+      background-color: darken(color(primary), 40%);
       object-fit: cover;
       z-index: 1;
       border-radius: 25px;
