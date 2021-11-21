@@ -15,6 +15,7 @@
 $colors: (
   primary: #1aedd8,
   secondary: #fd2155,
+  tertiary: #13fc03,
   primary-trans: #1aedd860,
   secondary-trans: #fd215460,
   divider: rgba(255, 255, 255, 0.12),
@@ -93,6 +94,10 @@ button:focus {
   color: color(secondary);
 }
 
+.tertiary {
+  color: color(tertiary);
+}
+
 hr {
   border-color: #00000000;
   margin: 25px 16px;
@@ -127,21 +132,19 @@ body {
 }
 
 nav {
-  height: 40px;
+  height: 200px;
   width: 100vw;
-  padding: $padding;
+  padding: 3px;
   position: fixed;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   z-index: 100;
   li span {
     color: white;
     font-size: 1.4em;
   }
-  #logo {
-    text-transform: uppercase;
-  }
+
   a {
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
@@ -152,46 +155,53 @@ nav {
     display: inline-block;
     position: relative;
   }
-  a:after {
-    background: none repeat scroll 0 0 transparent;
-    bottom: 0;
-    content: "";
-    display: block;
-    height: 2px;
-    left: 50%;
-    position: absolute;
-    background: color(secondary);
-    transition: width 0.3s ease 0s, left 0.3s ease 0s;
-    width: 0;
-  }
-  a:hover:after {
-    width: 100%;
-    left: 0;
+  .scrolled {
+    margin: 0 auto auto 0;
+    transform: scale(0.4) translateY(-150px) translateX(-150px);
   }
 
   #nav-links {
     display: none;
+    margin: 10px 25px;
+    a:after {
+      background: none repeat scroll 0 0 transparent;
+      bottom: 0;
+      content: "";
+      display: block;
+      height: 2px;
+      left: 50%;
+      position: absolute;
+      background: color(secondary);
+      transition: width 0.8s ease 0s, left 0.8s ease 0s, font-size .8s ;
+      width: 0;
+    }
+    a:hover:after {
+      width: 100%;
+      left: 0;
+    }
+    .shrunk {
+      font-size: 1em;
+    }
     ul {
       margin-right: 5px;
     }
     li {
       display: inline;
       a {
-        font-size: 1.2em;
+        font-size: 1.6em;
       }
     }
-    @include lg(){
+    @include lg() {
       display: block;
     }
   }
 
   aside.top-drawer {
     display: none;
-    
   }
-  .animated-menu{
+  .animated-menu {
     display: block;
-    animation: growDown 1s ease-in-out forwards;
+    animation: growDown 0.5s ease-in-out forwards;
     transform-origin: top;
     position: fixed;
     top: 0px;
@@ -215,101 +225,101 @@ nav {
       }
     }
   }
+  #hamburger-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 105;
+    .menu-icon {
+      transform: scale(1.5);
+    }
+    @include lg() {
+      display: none;
+    }
+  }
+
+  .menu-icon {
+    position: relative;
+    right: 20px;
+    top: 12px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+
+    .menu-icon__cheeckbox {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      cursor: pointer;
+      z-index: 2;
+      -webkit-touch-callout: none;
+      position: absolute;
+      opacity: 0;
+    }
+    div {
+      margin: auto;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      width: 22px;
+      height: 12px;
+    }
+    span {
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: #fff;
+      border-radius: 1px;
+      transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
+
+      &:first-of-type {
+        top: 0;
+      }
+      &:last-of-type {
+        bottom: 0;
+      }
+    }
+    &.active,
+    .menu-icon__cheeckbox:checked + div {
+      span {
+        &:first-of-type {
+          transform: rotate(45deg);
+          top: 5px;
+        }
+        &:last-of-type {
+          transform: rotate(-45deg);
+          bottom: 5px;
+        }
+      }
+    }
+
+    &.active:hover span:first-of-type,
+    &.active:hover span:last-of-type,
+    &:hover .menu-icon__cheeckbox:checked + div span:first-of-type,
+    &:hover .menu-icon__cheeckbox:checked + div span:last-of-type {
+      width: 22px;
+    }
+
+    &:hover {
+      // no need hover effect on mobile.
+      @media (min-width: 1024px) {
+        span:first-of-type {
+          width: 26px;
+        }
+
+        span:last-of-type {
+          width: 12px;
+        }
+      }
+    }
+  }
 }
 
 //🍔 hamburger menu //
-
-#hamburger-menu {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10002;
-  .menu-icon {
-    transform: scale(1.5);
-  }
-  @include lg(){
-    display: none;
-  }
-}
-
-.menu-icon {
-  position: relative;
-  right: 10px;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-
-  .menu-icon__cheeckbox {
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    cursor: pointer;
-    z-index: 2;
-    -webkit-touch-callout: none;
-    position: absolute;
-    opacity: 0;
-  }
-  div {
-    margin: auto;
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    width: 22px;
-    height: 12px;
-  }
-  span {
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: #fff;
-    border-radius: 1px;
-    transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
-
-    &:first-of-type {
-      top: 0;
-    }
-    &:last-of-type {
-      bottom: 0;
-    }
-  }
-  &.active,
-  .menu-icon__cheeckbox:checked + div {
-    span {
-      &:first-of-type {
-        transform: rotate(45deg);
-        top: 5px;
-      }
-      &:last-of-type {
-        transform: rotate(-45deg);
-        bottom: 5px;
-      }
-    }
-  }
-
-  &.active:hover span:first-of-type,
-  &.active:hover span:last-of-type,
-  &:hover .menu-icon__cheeckbox:checked + div span:first-of-type,
-  &:hover .menu-icon__cheeckbox:checked + div span:last-of-type {
-    width: 22px;
-  }
-
-  &:hover {
-    // no need hover effect on mobile.
-    @media (min-width: 1024px) {
-      span:first-of-type {
-        width: 26px;
-      }
-
-      span:last-of-type {
-        width: 12px;
-      }
-    }
-  }
-}
 
 .display-none {
   display: none;
@@ -334,13 +344,11 @@ header#masthead {
   .name.initial {
     text-shadow: -1px -1px 0 rgb(255, 255, 255), 1px -1px 0 rgb(255, 255, 255),
       -1px 1px 0 rgb(255, 255, 255), 1px 1px 0 #fff;
-      cursor: pointer;
-
+    cursor: pointer;
   }
 
   .name.initial:hover {
     animation: rubberBand 0.8s;
-      
   }
 
   .name.loaded {
@@ -381,24 +389,34 @@ header#masthead {
   h4 {
     text-transform: lowercase;
   }
-  h4,
+
   h5 {
-    color: white;
     padding-left: 5px;
-  }
-  h5 {
     font-size: 1.1em;
-    font-weight: 300;
-    font-style: italic;
+    font-weight: 400;
+    // font-style: italic;
   }
-  #link-container{
+  #link-container {
     width: 300px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
-  img{
-    filter: invert(100%) sepia(0%) saturate(2740%) hue-rotate(226deg) brightness(115%) contrast(101%)
+    img {
+      transition: transform 0.45s ease-in-out;
+      filter: invert(100%) sepia(0%) saturate(2740%) hue-rotate(226deg)
+        brightness(115%) contrast(101%);
+    }
+    img:hover {
+      transform: rotate(360deg);
+    }
+    #github:hover {
+      filter: invert(19%) sepia(73%) saturate(3474%) hue-rotate(333deg)
+        brightness(112%) contrast(98%);
+    }
+    #linkedin:hover {
+      filter: invert(72%) sepia(77%) saturate(464%) hue-rotate(115deg)
+        brightness(94%) contrast(98%);
+    }
   }
 }
 
@@ -529,7 +547,7 @@ section#technology {
     position: relative;
     list-style: none;
     text-align: center;
-    font-family: "Fira Code", monospace;
+    font-family: "Montserrat", sans-serif;
     text-transform: lowercase;
     padding: 30px 0;
     z-index: 50;
@@ -548,9 +566,7 @@ section#technology {
     text-transform: lowercase;
     position: absolute;
     margin: 0;
-    // font-size: 1em;
     font-family: "Fira Code", monospace;
-
     color: rgba(192, 192, 192, 0.2);
     filter: blur(0.8px);
     transition: filter 1.2s ease, transform 0.9s ease-in-out,
@@ -559,17 +575,14 @@ section#technology {
     transform: translateX(-50%), scale(1);
     top: calc(50% - 1ex);
     left: 100%;
-    // right: 100px;
-    // bottom: 200px;
     white-space: nowrap;
     text-shadow: none;
-    // margin-right: 100px;
   }
 
   .active-bubble {
     color: color(primary);
     filter: blur(0);
-    text-shadow: 4px 2px 4px color(secondary);
+    // text-shadow: 4px 2px 4px color(secondary);
     transform: scale(1.4);
   }
 
@@ -669,6 +682,7 @@ section#portfolio {
       span,
       ul {
         padding: 5px 0;
+        list-style: circle;
       }
 
       span,
@@ -738,7 +752,7 @@ section#contact {
 
 footer {
   height: 200px;
-  background-color: #0a0a0a;
+  // background-color: #0a0a0a;
 }
 
 /// *** *** *** *** *** *** *** *** *** *** *** *** ///

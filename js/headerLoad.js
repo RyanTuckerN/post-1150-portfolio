@@ -2,8 +2,10 @@ const [main, menu1, menu2] = [...document.querySelectorAll("canvas")];
 menu1.style.display = "none";
 menu2.style.display = "none";
 //for typing effect
-function animatedHeader() {
+function animatedHeader(i) {
+  i++
   const nameContainer = document.querySelector("#name-container");
+  nameContainer.innerHTML=''
   const spans = "Ryan Tucker".split("").map((letter) => {
     if (!letter) return `<span class='main-name-letter'>&nbsp;</span>`;
     return `<p class='main-name-letter name initial'>${letter}</p>`;
@@ -26,8 +28,8 @@ function animatedHeader() {
           letters.every((letter) => ![...letter.classList].includes("initial"))
         ) {
           setTimeout(() => {
-            nameContainer.innerHTML = "";
-            animatedHeader();
+            nameContainer.innerHTML = `<p class='main-name-letter name initial'>${i}x... again?</p>`;
+            setTimeout(()=>animatedHeader(i), 2500)
           }, 1000);
         }
       };
@@ -35,4 +37,4 @@ function animatedHeader() {
     });
   }, 1150);
 }
-animatedHeader();
+animatedHeader(0);

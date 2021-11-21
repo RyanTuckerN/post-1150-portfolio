@@ -11,14 +11,17 @@
 
   <body>
     <nav>
-      <a id="logo" href="#masthead">Ryan Tucker</a>
-      <!-- <a id='logo' href="#masthead">Ryan Tucker</a> -->
+      <!-- <a href="#masthead"><img src="./assets/logo.svg" alt="Logo, Ryan Tucker's name with initials stacked in color" srcset=""></a> -->
+      <a href="#masthead">
+        <img id='logo' src="./assets/logo.png" alt="Logo, Ryan Tucker's name with initials stacked in color" >
+      </a>
+      <!-- <a id="logo" href="#masthead" class="primary">Ryan Tucker</a> -->
       <div id="nav-links">
         <ul>
-          <li><a href="#about">About</a><span>&nbsp;&#183;</span></li>  
-          <li><a href="#technology">Skills</a><span>&nbsp;&#183;</span></li>  
-          <li><a href="#portfolio">Portfolio</a><span>&nbsp;&#183;</span></li>  
-          <li><a href="#contact">Contact</a></li>
+          <li><a class="menu-link" href="#about">About</a><span>&nbsp;&#183;</span></li>  
+          <li><a class="menu-link" href="#technology">Skills</a><span>&nbsp;&#183;</span></li>  
+          <li><a class="menu-link" href="#portfolio">Portfolio</a><span>&nbsp;&#183;</span></li>  
+          <li><a class="menu-link" href="#contact">Contact</a></li>
         </ul>
       </div>
       <div id="hamburger-menu">
@@ -34,10 +37,10 @@
       <aside id='top-drawer' class="top-drawer">
         <div id="nav-links-menu">
           <ul>
-            <li><a href="#about">About</a></li>  
-            <li><a href="#technology">Skills</a></li>  
-            <li><a href="#portfolio">Portfolio</a></li>  
-            <li><a href="#contact">Contact</a></li>
+            <li><a class="menu-link" href="#about">About</a></li>  
+            <li><a class="menu-link" href="#technology">Skills</a></li>  
+            <li><a class="menu-link" href="#portfolio">Portfolio</a></li>  
+            <li><a class="menu-link" href="#contact">Contact</a></li>
           </ul>
         </div>
       </aside>
@@ -55,9 +58,9 @@
         <h5>Hi, I'm...</h5>
         <div id="name-container" class="name initial"></div>
         <div id='link-container'>
-          <h4>Full Stack Web Developer</h4>
-          <a href="https://github.com/RyanTuckerN" target="_blank"><img src="./assets/GitHub-Mark-32px.png" alt="GitHub Logo"></a>
-          <a href="https://www.linkedin.com/in/ryan-nick-tucker-570b0020b/" target="_blank"><img src="./assets/Linkedin.png" alt="LinkedIn Logo"></a>
+          <h4><span>Full Stack</span> <span>Web Developer</span></h4>
+          <a href="https://github.com/RyanTuckerN" target="_blank"><img id="github" src="./assets/GitHub-Mark-32px.png" alt="GitHub Logo"></a>
+          <a href="https://www.linkedin.com/in/ryan-nick-tucker-570b0020b/" target="_blank"><img id='linkedin' src="./assets/Linkedin.png" alt="LinkedIn Logo"></a>
         </div>
       </div>
     </header>
@@ -74,7 +77,7 @@
                 alt="Ryan Tucker portrait, smiling with blurred trees in the background"
               />
               <h5>
-                <i>creator</i> &#183; <i>learner</i> &#183;
+                <i >creator</i> &#183; <i>learner</i> &#183;
                 <i>problem solver</i>
               </h5>
             </div>

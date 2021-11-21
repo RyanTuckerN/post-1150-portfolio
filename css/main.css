@@ -50,6 +50,10 @@ button:focus {
   color: #fd2155;
 }
 
+.tertiary {
+  color: #13fc03;
+}
+
 hr {
   border-color: #00000000;
   margin: 25px 16px;
@@ -94,9 +98,9 @@ body {
 }
 
 nav {
-  height: 40px;
+  height: 200px;
   width: 100vw;
-  padding: 15px;
+  padding: 3px;
   position: fixed;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -104,19 +108,15 @@ nav {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   z-index: 100;
 }
 
 nav li span {
   color: white;
   font-size: 1.4em;
-}
-
-nav #logo {
-  text-transform: uppercase;
 }
 
 nav a {
@@ -130,7 +130,18 @@ nav a {
   position: relative;
 }
 
-nav a:after {
+nav .scrolled {
+  margin: 0 auto auto 0;
+  -webkit-transform: scale(0.4) translateY(-150px) translateX(-150px);
+          transform: scale(0.4) translateY(-150px) translateX(-150px);
+}
+
+nav #nav-links {
+  display: none;
+  margin: 10px 25px;
+}
+
+nav #nav-links a:after {
   background: none repeat scroll 0 0 transparent;
   bottom: 0;
   content: "";
@@ -139,18 +150,18 @@ nav a:after {
   left: 50%;
   position: absolute;
   background: #fd2155;
-  -webkit-transition: width 0.3s ease 0s, left 0.3s ease 0s;
-  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  -webkit-transition: width 0.8s ease 0s, left 0.8s ease 0s, font-size .8s;
+  transition: width 0.8s ease 0s, left 0.8s ease 0s, font-size .8s;
   width: 0;
 }
 
-nav a:hover:after {
+nav #nav-links a:hover:after {
   width: 100%;
   left: 0;
 }
 
-nav #nav-links {
-  display: none;
+nav #nav-links .shrunk {
+  font-size: 1em;
 }
 
 nav #nav-links ul {
@@ -162,7 +173,7 @@ nav #nav-links li {
 }
 
 nav #nav-links li a {
-  font-size: 1.2em;
+  font-size: 1.6em;
 }
 
 @media (min-width: 950px) {
@@ -177,8 +188,8 @@ nav aside.top-drawer {
 
 nav .animated-menu {
   display: block;
-  -webkit-animation: growDown 1s ease-in-out forwards;
-          animation: growDown 1s ease-in-out forwards;
+  -webkit-animation: growDown 0.5s ease-in-out forwards;
+          animation: growDown 0.5s ease-in-out forwards;
   -webkit-transform-origin: top;
           transform-origin: top;
   position: fixed;
@@ -213,7 +224,7 @@ nav .animated-menu #nav-links-menu ul li {
   padding: 3px 0;
 }
 
-#hamburger-menu {
+nav #hamburger-menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -223,29 +234,30 @@ nav .animated-menu #nav-links-menu ul li {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  z-index: 10002;
+  z-index: 105;
 }
 
-#hamburger-menu .menu-icon {
+nav #hamburger-menu .menu-icon {
   -webkit-transform: scale(1.5);
           transform: scale(1.5);
 }
 
 @media (min-width: 950px) {
-  #hamburger-menu {
+  nav #hamburger-menu {
     display: none;
   }
 }
 
-.menu-icon {
+nav .menu-icon {
   position: relative;
-  right: 10px;
+  right: 20px;
+  top: 12px;
   width: 30px;
   height: 30px;
   cursor: pointer;
 }
 
-.menu-icon .menu-icon__cheeckbox {
+nav .menu-icon .menu-icon__cheeckbox {
   display: block;
   width: 100%;
   height: 100%;
@@ -257,7 +269,7 @@ nav .animated-menu #nav-links-menu ul li {
   opacity: 0;
 }
 
-.menu-icon div {
+nav .menu-icon div {
   margin: auto;
   position: absolute;
   top: 0;
@@ -268,7 +280,7 @@ nav .animated-menu #nav-links-menu ul li {
   height: 12px;
 }
 
-.menu-icon span {
+nav .menu-icon span {
   position: absolute;
   display: block;
   width: 100%;
@@ -279,40 +291,40 @@ nav .animated-menu #nav-links-menu ul li {
   transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
 }
 
-.menu-icon span:first-of-type {
+nav .menu-icon span:first-of-type {
   top: 0;
 }
 
-.menu-icon span:last-of-type {
+nav .menu-icon span:last-of-type {
   bottom: 0;
 }
 
-.menu-icon.active span:first-of-type,
-.menu-icon .menu-icon__cheeckbox:checked + div span:first-of-type {
+nav .menu-icon.active span:first-of-type,
+nav .menu-icon .menu-icon__cheeckbox:checked + div span:first-of-type {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
   top: 5px;
 }
 
-.menu-icon.active span:last-of-type,
-.menu-icon .menu-icon__cheeckbox:checked + div span:last-of-type {
+nav .menu-icon.active span:last-of-type,
+nav .menu-icon .menu-icon__cheeckbox:checked + div span:last-of-type {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
   bottom: 5px;
 }
 
-.menu-icon.active:hover span:first-of-type,
-.menu-icon.active:hover span:last-of-type,
-.menu-icon:hover .menu-icon__cheeckbox:checked + div span:first-of-type,
-.menu-icon:hover .menu-icon__cheeckbox:checked + div span:last-of-type {
+nav .menu-icon.active:hover span:first-of-type,
+nav .menu-icon.active:hover span:last-of-type,
+nav .menu-icon:hover .menu-icon__cheeckbox:checked + div span:first-of-type,
+nav .menu-icon:hover .menu-icon__cheeckbox:checked + div span:last-of-type {
   width: 22px;
 }
 
 @media (min-width: 1024px) {
-  .menu-icon:hover span:first-of-type {
+  nav .menu-icon:hover span:first-of-type {
     width: 26px;
   }
-  .menu-icon:hover span:last-of-type {
+  nav .menu-icon:hover span:last-of-type {
     width: 12px;
   }
 }
@@ -413,16 +425,10 @@ header#masthead h4 {
   text-transform: lowercase;
 }
 
-header#masthead h4,
 header#masthead h5 {
-  color: white;
   padding-left: 5px;
-}
-
-header#masthead h5 {
   font-size: 1.1em;
-  font-weight: 300;
-  font-style: italic;
+  font-weight: 400;
 }
 
 header#masthead #link-container {
@@ -438,9 +444,28 @@ header#masthead #link-container {
           justify-content: space-between;
 }
 
-header#masthead img {
+header#masthead #link-container img {
+  -webkit-transition: -webkit-transform 0.45s ease-in-out;
+  transition: -webkit-transform 0.45s ease-in-out;
+  transition: transform 0.45s ease-in-out;
+  transition: transform 0.45s ease-in-out, -webkit-transform 0.45s ease-in-out;
   -webkit-filter: invert(100%) sepia(0%) saturate(2740%) hue-rotate(226deg) brightness(115%) contrast(101%);
           filter: invert(100%) sepia(0%) saturate(2740%) hue-rotate(226deg) brightness(115%) contrast(101%);
+}
+
+header#masthead #link-container img:hover {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+header#masthead #link-container #github:hover {
+  -webkit-filter: invert(19%) sepia(73%) saturate(3474%) hue-rotate(333deg) brightness(112%) contrast(98%);
+          filter: invert(19%) sepia(73%) saturate(3474%) hue-rotate(333deg) brightness(112%) contrast(98%);
+}
+
+header#masthead #link-container #linkedin:hover {
+  -webkit-filter: invert(72%) sepia(77%) saturate(464%) hue-rotate(115deg) brightness(94%) contrast(98%);
+          filter: invert(72%) sepia(77%) saturate(464%) hue-rotate(115deg) brightness(94%) contrast(98%);
 }
 
 section {
@@ -604,7 +629,7 @@ section#technology #tech-mobile {
   position: relative;
   list-style: none;
   text-align: center;
-  font-family: "Fira Code", monospace;
+  font-family: "Montserrat", sans-serif;
   text-transform: lowercase;
   padding: 30px 0;
   z-index: 50;
@@ -647,7 +672,6 @@ section#technology .active-bubble {
   color: #1aedd8;
   -webkit-filter: blur(0);
           filter: blur(0);
-  text-shadow: 4px 2px 4px #fd2155;
   -webkit-transform: scale(1.4);
           transform: scale(1.4);
 }
@@ -786,6 +810,7 @@ section#portfolio .project .background {
 section#portfolio .project .background span,
 section#portfolio .project .background ul {
   padding: 5px 0;
+  list-style: circle;
 }
 
 section#portfolio .project .background span,
@@ -870,7 +895,6 @@ section#contact form #message {
 
 footer {
   height: 200px;
-  background-color: #0a0a0a;
 }
 
 .jiggle {
