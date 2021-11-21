@@ -16,8 +16,8 @@
           box-sizing: border-box;
   margin: 0;
   padding: 0;
-  -webkit-transition-duration: .456s;
-          transition-duration: .456s;
+  -webkit-transition-duration: 0.456s;
+          transition-duration: 0.456s;
   scroll-behavior: smooth;
   outline: none;
 }
@@ -154,8 +154,8 @@ nav #nav-links a:after {
   left: 50%;
   position: absolute;
   background: #fd2155;
-  -webkit-transition: width 0.8s ease 0s, left 0.8s ease 0s, font-size .8s;
-  transition: width 0.8s ease 0s, left 0.8s ease 0s, font-size .8s;
+  -webkit-transition: width 0.8s ease 0s, left 0.8s ease 0s, font-size 0.8s;
+  transition: width 0.8s ease 0s, left 0.8s ease 0s, font-size 0.8s;
   width: 0;
 }
 
@@ -590,6 +590,7 @@ section#technology #tech {
     display: block;
     margin: 0;
     position: absolute;
+    top: 0;
     left: -45px;
     height: calc(550px - 120px);
     width: calc(100vw - 200px);
@@ -713,10 +714,6 @@ section#portfolio .container h1 {
   }
 }
 
-section#portfolio hr {
-  margin-top: 0;
-}
-
 section#portfolio .project-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -748,8 +745,6 @@ section#portfolio .project img {
   height: 250px;
   width: 250px;
   opacity: 0.4;
-  -webkit-transition: all ease-out 0.666s;
-  transition: all ease-out 0.666s;
   border-radius: 25px;
   z-index: 10;
 }

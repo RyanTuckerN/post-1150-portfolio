@@ -12,6 +12,8 @@
 //responsive menu
 const hamburger = document.querySelector(".menu-icon .menu-icon__cheeckbox");
 const menu = document.querySelector("aside#top-drawer");
+
+
 function clickAway(e) {
   if (![...e.target.classList].includes("menu-link")) {
     handleClose();
@@ -45,12 +47,15 @@ menuLinks.forEach((link) => link.addEventListener("click", handleClose));
 
 //scroll effects
 const logo = document.querySelector("#logo");
+const logoAnchor = document.querySelector('nav a')
 const navLinks = document.querySelectorAll("#nav-links a");
 
 function handleScroll() {
   if (window.scrollY && !logo.classList.contains("scrolled")) {
     navLinks.forEach((link) => link.classList.add("shrunk"));
     logo.classList.add("scrolled");
+    logoAnchor.style.height = '80px'
+    logoAnchor.style.width = '80px'
     setTimeout(() => {
       logo.setAttribute("src", "./assets/simple-logo.png");
     }, 400);
@@ -59,6 +64,8 @@ function handleScroll() {
     navLinks.forEach((link) => link.classList.remove("shrunk"));
     logo.classList.remove("scrolled");
     logo.setAttribute("src", "./assets/logo.png");
+    logoAnchor.style.height = '200px'
+    logoAnchor.style.width = '200px'
   }
 }
 window.addEventListener("scroll", handleScroll);

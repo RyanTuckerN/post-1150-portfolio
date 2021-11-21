@@ -63,7 +63,7 @@ $padding: 15px;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  transition-duration: .456s;
+  transition-duration: 0.456s;
   scroll-behavior: smooth;
   outline: none;
 }
@@ -175,7 +175,7 @@ nav {
       left: 50%;
       position: absolute;
       background: color(secondary);
-      transition: width 0.8s ease 0s, left 0.8s ease 0s, font-size .8s ;
+      transition: width 0.8s ease 0s, left 0.8s ease 0s, font-size 0.8s;
       width: 0;
     }
     a:hover:after {
@@ -323,7 +323,6 @@ nav {
 }
 
 //🍔 hamburger menu //
-
 
 header#masthead {
   padding: calc(40px + 33vh) 0 0 1.2em;
@@ -520,13 +519,12 @@ section#technology {
       display: block;
       margin: 0;
       position: absolute;
-      // top: calc(160vh + 80px);
+      top: 0;
       left: -45px;
       height: calc(550px - 120px);
       width: calc(100vw - 200px);
     }
     @include lg() {
-      // top: calc(145vh + 60px);
       width: calc(100vw - 400px);
       left: 145px;
     }
@@ -621,9 +619,9 @@ section#portfolio {
       }
     }
   }
-  hr {
-    margin-top: 0;
-  }
+  // hr {
+  //   margin-top: 0;
+  // }
 
   .project-container {
     display: flex;
@@ -645,7 +643,7 @@ section#portfolio {
       height: 250px;
       width: 250px;
       opacity: 0.4;
-      transition: all ease-out 0.666s;
+      // transition: all ease-out 0.666s;
       border-radius: 25px;
       z-index: 10;
     }
