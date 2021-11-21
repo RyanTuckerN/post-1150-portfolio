@@ -48,14 +48,14 @@ const logo = document.querySelector("#logo");
 const navLinks = document.querySelectorAll("#nav-links a");
 
 function handleScroll() {
-  if (window.scrollY >= 200 && !logo.classList.contains("scrolled")) {
+  if (window.scrollY && !logo.classList.contains("scrolled")) {
     navLinks.forEach((link) => link.classList.add("shrunk"));
     logo.classList.add("scrolled");
     setTimeout(() => {
       logo.setAttribute("src", "./assets/simple-logo.png");
     }, 400);
   }
-  if (window.scrollY < 200 && logo.classList.contains("scrolled")) {
+  if (!window.scrollY && logo.classList.contains("scrolled")) {
     navLinks.forEach((link) => link.classList.remove("shrunk"));
     logo.classList.remove("scrolled");
     logo.setAttribute("src", "./assets/logo.png");

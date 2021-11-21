@@ -8,7 +8,7 @@ function animatedHeader(i) {
   nameContainer.innerHTML=''
   const spans = "Ryan Tucker".split("").map((letter) => {
     if (!letter) return `<span class='main-name-letter'>&nbsp;</span>`;
-    return `<p class='main-name-letter name initial'>${letter}</p>`;
+    return `<p class='main-name-letter name initial effect'>${letter}</p>`;
   });
   for (let i = 0; i < spans.length; i++) {
     setTimeout(() => {
@@ -28,7 +28,7 @@ function animatedHeader(i) {
           letters.every((letter) => ![...letter.classList].includes("initial"))
         ) {
           setTimeout(() => {
-            nameContainer.innerHTML = `<p class='main-name-letter name initial'>${i}x... again?</p>`;
+            nameContainer.innerHTML = `<p class='main-name-letter name initial effect'>${i}x... again?</p>`;
             setTimeout(()=>animatedHeader(i), 2500)
           }, 1000);
         }

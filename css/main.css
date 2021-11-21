@@ -16,10 +16,10 @@
           box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-transition-duration: .456s;
+          transition-duration: .456s;
   scroll-behavior: smooth;
   outline: none;
-  -webkit-transition: all ease-in-out 0.333s;
-  transition: all ease-in-out 0.333s;
 }
 
 button {
@@ -73,6 +73,10 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background-color: #000;
+}
+
+.display-none {
+  display: none;
 }
 
 .container {
@@ -329,10 +333,6 @@ nav .menu-icon:hover .menu-icon__cheeckbox:checked + div span:last-of-type {
   }
 }
 
-.display-none {
-  display: none;
-}
-
 header#masthead {
   padding: calc(40px + 33vh) 0 0 1.2em;
   height: 100vh;
@@ -366,7 +366,7 @@ header#masthead .name.initial {
   cursor: pointer;
 }
 
-header#masthead .name.initial:hover {
+header#masthead .name.initial.effect:hover {
   -webkit-animation: rubberBand 0.8s;
           animation: rubberBand 0.8s;
 }
@@ -496,22 +496,9 @@ section h5 {
 }
 
 section#about {
-  height: calc(fit-content+30px);
   background: black;
   background: -webkit-gradient(linear, left bottom, left top, from(black), color-stop(33%, rgba(0, 0, 0, 0.821166)), color-stop(66%, rgba(0, 0, 0, 0.599877)), to(rgba(0, 0, 0, 0)));
   background: linear-gradient(0deg, black 0%, rgba(0, 0, 0, 0.821166) 33%, rgba(0, 0, 0, 0.599877) 66%, rgba(0, 0, 0, 0) 100%);
-}
-
-@media (min-width: 650px) {
-  section#about {
-    height: calc(60vh + 80px);
-  }
-}
-
-@media (min-width: 950px) {
-  section#about {
-    height: calc(40vh + 80px);
-  }
 }
 
 section#about .img-and-text {
@@ -603,7 +590,6 @@ section#technology #tech {
     display: block;
     margin: 0;
     position: absolute;
-    top: calc(160vh + 80px);
     left: -45px;
     height: calc(550px - 120px);
     width: calc(100vw - 200px);
@@ -612,7 +598,6 @@ section#technology #tech {
 
 @media (min-width: 950px) {
   section#technology #tech {
-    top: calc(145vh + 60px);
     width: calc(100vw - 400px);
     left: 145px;
   }

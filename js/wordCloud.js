@@ -1,3 +1,4 @@
+
 function randInt(min, max) {
   return Math.floor(Math.random() * ((max + 1) - min) ) + min;
 }
@@ -7,10 +8,10 @@ let words = document.querySelectorAll("#tech p");
 for (let i = 0; i < words.length; i++){
   let newX = randInt(0, 100);
   let newY = randInt(0, 100);
-
+  
   let topValue = "calc("+ newY.toString() + "% - 1ex)";
   let leftValue = newX.toString() + "%";
-
+  
   words[i].style.top = topValue;
   words[i].style.left = leftValue;
 }
@@ -44,5 +45,9 @@ skills.forEach(skill=>{
     skillBubble.classList.remove('active-bubble')
     skill.classList.remove('active')
   })
-
+  
 })
+const header = document.querySelector('header#masthead')
+const about = document.querySelector('section#about')
+const techBubbles = document.querySelector('#tech')
+techBubbles.style.top = `${about.offsetHeight + header.offsetHeight + 100}px`

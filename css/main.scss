@@ -63,9 +63,9 @@ $padding: 15px;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  transition-duration: .456s;
   scroll-behavior: smooth;
   outline: none;
-  transition: all ease-in-out 0.333s;
 }
 
 button {
@@ -117,6 +117,9 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background-color: #000;
+}
+.display-none {
+  display: none;
 }
 
 .container {
@@ -321,9 +324,6 @@ nav {
 
 //🍔 hamburger menu //
 
-.display-none {
-  display: none;
-}
 
 header#masthead {
   padding: calc(40px + 33vh) 0 0 1.2em;
@@ -347,7 +347,7 @@ header#masthead {
     cursor: pointer;
   }
 
-  .name.initial:hover {
+  .name.initial.effect:hover {
     animation: rubberBand 0.8s;
   }
 
@@ -448,7 +448,6 @@ section {
 $about-image-width: 280px;
 
 section#about {
-  height: calc(fit-content+30px);
   background: rgb(0, 0, 0);
   background: linear-gradient(
     0deg,
@@ -457,12 +456,6 @@ section#about {
     rgba(0, 0, 0, 0.5998774509803921) 66%,
     rgba(0, 0, 0, 0) 100%
   );
-  @include md() {
-    height: calc(60vh + 80px);
-  }
-  @include lg() {
-    height: calc(40vh + 80px);
-  }
 
   .img-and-text {
     max-width: 95vw;
@@ -527,13 +520,13 @@ section#technology {
       display: block;
       margin: 0;
       position: absolute;
-      top: calc(160vh + 80px);
+      // top: calc(160vh + 80px);
       left: -45px;
       height: calc(550px - 120px);
       width: calc(100vw - 200px);
     }
     @include lg() {
-      top: calc(145vh + 60px);
+      // top: calc(145vh + 60px);
       width: calc(100vw - 400px);
       left: 145px;
     }
