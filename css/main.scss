@@ -514,12 +514,13 @@ section#technology {
   #tech {
     display: none;
     z-index: 48;
+    
 
     @include md() {
       display: block;
       margin: 0;
       position: absolute;
-      top: 0;
+      top: -50px;
       left: -45px;
       height: calc(550px - 120px);
       width: calc(100vw - 200px);
@@ -529,7 +530,7 @@ section#technology {
       left: 145px;
     }
     @include xl() {
-      width: calc(100vw - 30%);
+      width: calc(100vw - 26%);
       left: 7.5%;
     }
   }

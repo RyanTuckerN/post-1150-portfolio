@@ -590,7 +590,7 @@ section#technology #tech {
     display: block;
     margin: 0;
     position: absolute;
-    top: 0;
+    top: -50px;
     left: -45px;
     height: calc(550px - 120px);
     width: calc(100vw - 200px);
@@ -606,7 +606,7 @@ section#technology #tech {
 
 @media (min-width: 1250px) {
   section#technology #tech {
-    width: calc(100vw - 30%);
+    width: calc(100vw - 26%);
     left: 7.5%;
   }
 }

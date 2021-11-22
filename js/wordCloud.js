@@ -3,14 +3,16 @@ function randInt(min, max) {
   return Math.floor(Math.random() * ((max + 1) - min) ) + min;
 }
 
-let words = document.querySelectorAll("#tech p");
+const words = document.querySelectorAll("#tech p");
+const wordsContainer = document.querySelector('#tech')
 
 for (let i = 0; i < words.length; i++){
   let newX = randInt(0, 100);
   let newY = randInt(0, 100);
   
   let topValue = "calc("+ newY.toString() + "% - 1ex)";
-  let leftValue = newX.toString() + "%";
+  // let leftValue = `calc(${newX.toString()}% - ${80}px )`;
+  let leftValue = `calc(${newX.toString()}% - ${words[i].clientWidth}px )`;
   
   words[i].style.top = topValue;
   words[i].style.left = leftValue;
