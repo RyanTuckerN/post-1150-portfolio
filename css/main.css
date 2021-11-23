@@ -590,7 +590,7 @@ section#technology #tech {
     display: block;
     margin: 0;
     position: absolute;
-    top: -50px;
+    top: -200px;
     left: -45px;
     height: calc(550px - 120px);
     width: calc(100vw - 200px);
