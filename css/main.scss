@@ -513,6 +513,9 @@ section#about {
 }
 
 section#technology {
+  .container{
+    height: 100%;
+  }
   height: 100%;
   @include md() {
     height: 550px;

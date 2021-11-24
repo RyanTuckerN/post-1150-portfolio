@@ -574,6 +574,10 @@ section#technology {
   height: 100%;
 }
 
+section#technology .container {
+  height: 100%;
+}
+
 @media (min-width: 650px) {
   section#technology {
     height: 550px;
