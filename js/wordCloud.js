@@ -52,4 +52,7 @@ skills.forEach(skill=>{
 const header = document.querySelector('header#masthead')
 const about = document.querySelector('section#about')
 const techBubbles = document.querySelector('#tech')
-techBubbles.style.top = `${about.offsetHeight + header.offsetHeight + 100}px`
+techBubbles.style.top = `${about.offsetHeight + header.offsetHeight + 50}px`
+window.addEventListener('resize', ()=>{
+techBubbles.style.top = `${about.offsetHeight + header.offsetHeight + 50}px`
+})

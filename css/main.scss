@@ -456,15 +456,21 @@ section#about {
     rgba(0, 0, 0, 0) 100%
   );
 
+  p{
+    margin-bottom: 20px;
+    line-height: 1.5em;
+  }
+
   .img-and-text {
     max-width: 95vw;
     @include md() {
       display: flex;
       flex-flow: row nowrap;
-      align-items: center;
+      // align-items: center;
+      margin: 10px 30px 0 0;
       img {
-        margin: auto auto;
-        padding: 0 $padding;
+        // margin: ;
+        // padding: 0 $padding;
       }
     }
   }
@@ -473,6 +479,7 @@ section#about {
     max-width: 320px;
     @include md() {
       max-width: none;
+      padding-left: 20px;
     }
   }
 
