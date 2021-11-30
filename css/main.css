@@ -50,10 +50,6 @@ button:focus {
   color: #fd2155;
 }
 
-.tertiary {
-  color: #13fc03;
-}
-
 hr {
   border-color: #00000000;
   margin: 25px 16px;
@@ -628,7 +624,7 @@ section#technology #tech-mobile {
 section#technology #tech-mobile span {
   -webkit-transform: scale(1);
           transform: scale(1);
-  color: inherit;
+  color: #d7fcf8;
   -webkit-transition: color 0.5s ease;
   transition: color 0.5s ease;
 }

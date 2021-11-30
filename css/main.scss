@@ -15,7 +15,6 @@
 $colors: (
   primary: #1aedd8,
   secondary: #fd2155,
-  tertiary: #13fc03,
   primary-trans: #1aedd860,
   secondary-trans: #fd215460,
   divider: rgba(255, 255, 255, 0.12),
@@ -530,7 +529,6 @@ section#technology {
       display: block;
       margin: 0;
       position: absolute;
-      // top: -200px;
       left: -45px;
       height: calc(550px - 120px);
       width: calc(100vw - 200px);
@@ -556,7 +554,7 @@ section#technology {
     cursor: default;
     span {
       transform: scale(1);
-      color: inherit;
+      color: lighten(color(primary), 40%);
       transition: color 0.5s ease;
     }
     span.active {
