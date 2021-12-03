@@ -55,17 +55,9 @@ hr {
   margin: 25px 16px;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+body {
   font-family: "Montserrat", sans-serif;
   color: #fff;
-}
-
-body {
   min-height: 100vh;
   overflow-x: hidden;
   background-color: #000;
@@ -482,7 +474,6 @@ section h1 {
 }
 
 section p {
-  font-family: "Lora", serif;
   text-indent: 1.3em;
 }
 
@@ -869,6 +860,71 @@ section#contact form button {
 section#contact form #message {
   height: 10em;
   text-align: start;
+}
+
+aside.modal {
+  min-height: 365px;
+  width: 650px;
+  background-color: #1f1f1f;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, 50%);
+          transform: translate(-50%, 50%);
+  opacity: 0;
+  padding: 45px;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  z-index: 100;
+}
+
+aside.modal.active {
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+aside.modal h4 {
+  font-size: 1.4em;
+}
+
+aside.modal p, aside.modal a, aside.modal div {
+  padding: .5em 0;
+}
+
+aside.modal li {
+  margin-left: 40px;
+}
+
+aside.modal a {
+  color: #1aedd8;
+  text-decoration: underline;
+}
+
+aside.modal dl {
+  margin-left: 20px;
+}
+
+aside.modal dl dt {
+  font-weight: 700;
+}
+
+aside.modal dl dd {
+  margin-left: 10px;
+  font-weight: 200;
+  font-style: italic;
+}
+
+aside.modal span {
+  color: #fd2155;
+  margin-left: 20px;
+  font-size: .75em;
+  font-weight: 600;
+  font-style: italic;
+}
+
+aside.modal button {
+  float: right;
 }
 
 footer {

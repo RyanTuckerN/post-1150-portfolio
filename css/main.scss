@@ -101,18 +101,10 @@ hr {
   border-color: #00000000;
   margin: 25px 16px;
 }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+  
+  body {
   font-family: "Montserrat", sans-serif;
   color: #fff;
-}
-
-body {
   min-height: 100vh;
   overflow-x: hidden;
   background-color: #000;
@@ -433,7 +425,6 @@ section {
     color: color(secondary);
   }
   p {
-    font-family: "Lora", serif;
     text-indent: 1.3em;
   }
 
@@ -747,6 +738,61 @@ section#contact {
       height: 10em;
       text-align: start;
     }
+  }
+}
+
+aside.modal{
+
+  min-height: 365px;
+  width: 650px;
+  background-color: #1f1f1f;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 50%);
+  opacity: 0;
+  padding: 45px;
+  transition: all .5s ease-in-out;
+  z-index: 100;
+  &.active {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  h4{
+    font-size: 1.4em;
+  }
+  p, a, div{
+    padding: .5em 0;
+  }
+  li{
+    margin-left: 40px;
+  }
+  a{
+    color: color(primary);
+    text-decoration: underline;
+  }
+  
+  dl{
+    margin-left: 20px;
+    dt{
+      font-weight: 700;
+    }
+    dd{
+    margin-left: 10px;
+
+      font-weight: 200;
+      font-style: italic;
+    }
+  }
+  span{
+    color: color(secondary);
+    margin-left: 20px;
+    font-size: .75em;
+    font-weight: 600;
+    font-style: italic;
+  }
+  button{
+    float: right;
   }
 }
 
