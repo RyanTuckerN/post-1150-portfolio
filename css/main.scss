@@ -125,6 +125,9 @@ hr {
   }
 }
 
+p{
+  line-height: 1.5em;
+}
 nav {
   height: 1px;
   width: 100vw;
@@ -637,7 +640,7 @@ section#portfolio {
     position: relative;
     overflow: hidden;
     border-radius: 25px;
-    a,
+    .project-box,
     img {
       object-fit: cover;
       height: 250px;
@@ -647,10 +650,12 @@ section#portfolio {
       border-radius: 25px;
       z-index: 10;
     }
-    a:hover,
+    // .project-box:hover,
     img:hover {
       opacity: 1;
       transform: scale(1.05);
+      cursor: pointer;
+
     }
     img:hover {
       object-fit: cover;
@@ -741,10 +746,21 @@ section#contact {
   }
 }
 
-aside.modal{
+.parent-disable{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.8;
+  z-index: 100;
+  height: 100%;
+  width: 100%;
+}
 
-  min-height: 365px;
-  width: 650px;
+aside.modal{
+  border-radius: 25px;
+  width: 500px;
+  max-width: 95vw;
   background-color: #1f1f1f;
   position: fixed;
   left: 50%;
@@ -753,13 +769,27 @@ aside.modal{
   opacity: 0;
   padding: 45px;
   transition: all .5s ease-in-out;
-  z-index: 100;
+  z-index: 0;
   &.active {
     transform: translate(-50%, -50%);
     opacity: 1;
   }
   h4{
     font-size: 1.4em;
+    display: inline;
+  }
+  img{
+    padding-left: 10px;
+    filter: invert(100%) sepia(0%) saturate(2740%) hue-rotate(226deg)
+        brightness(115%) contrast(101%);
+    position: relative;
+    top: 5px;
+    transform: scale(.85);
+  }
+  img:hover{
+    transform: scale(1) rotate(100%);
+    filter: invert(19%) sepia(73%) saturate(3474%) hue-rotate(333deg)
+        brightness(112%) contrast(98%);
   }
   p, a, div{
     padding: .5em 0;
@@ -797,8 +827,7 @@ aside.modal{
 }
 
 footer {
-  height: 200px;
-  // background-color: #0a0a0a;
+margin-top: 100px;
 }
 
 /// *** *** *** *** *** *** *** *** *** *** *** *** ///

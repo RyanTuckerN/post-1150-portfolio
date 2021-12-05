@@ -181,68 +181,68 @@
         <hr />
         <h1 class="scroll">Portfolio</h1>
         <div class="project-container">
-          <div class="project">
-            <a rel="noopener" href="https://firstcallapp.herokuapp.com" target="blank"><img src="./assets/firstCall.png"
-                alt="screenshot of firstCall app dashboard, dark interface with lists" /></a>
+          <div class="project scroll">
+            <div class='project-box'>
+              <img src="./assets/firstCall.png"
+                alt="screenshot of firstCall app dashboard, dark interface with lists" />
+            </div>
             <div class="background scroll">
               <h4>FirstCall</h4>
-              <span>Full CRUD app built on PERN stack</span>
-
-              <ul>
-                <li>Material UI</li>
-                <li>NodeMailer</li>
-                <li>Advanced Sequelize</li>
-              </ul>
+              <span>Gig management app for freelance musicians</span>
             </div>
           </div>
           <div class="project scroll">
-            <a rel="noopener" href="https://tmor-pet-tinder-client.herokuapp.com/" target="_blank"><img
-                src="./assets/petTinder.png"
-                alt="screenshot of Pet Tinder web app, white and pink/orage with welcome message" /></a>
-            <div class="background scroll">
-              <h4>Pet Tinder Web App</h4>
-              <span>Full CRUD app built on PERN stack</span>
-              <ul>
-                <li>Material UI</li>
-                <li>socket.io</li>
-                <li>real-time alerts</li>
-                <li>real-time chat</li>
-              </ul>
-            </div>
+            <div class="project-box" />
+            <!-- rel="noopener" href="https://tmor-pet-tinder-client.herokuapp.com/" target="_blank"> -->
+            <img src="./assets/petTinder.png"
+              alt="screenshot of Pet Tinder web app, white and pink/orage with welcome message" />
           </div>
-          <div class="project scroll">
-            <a rel="noopener" href="https://nick-tucker-bass.web.app/" target="_blank"><img src="./assets/ntb.png"
-                alt="screenshot of musician Nick Tucker playing upright bass in a jazz club" /></a>
-            <div class="background scroll">
-              <h4>Musician Website</h4>
-              <span>Static website build with React</span>
-            </div>
-          </div>
-          <div class="project scroll">
-            <a rel="noopener" href="https://giphy-search-engine.web.app/" target="_blank"><img
-                src="./assets/GIPHY-api.png" alt="screenshot of gif search engine, purple with images of pizza" /></a>
-            <div class="background scroll">
-              <h4>JavaScript API Project</h4>
-              <span>GIF search engine powered by GIPHY</span>
-            </div>
-          </div>
-          <div class="project scroll">
-            <a rel="noopener" href="https://ryantuckern.github.io/etch-a-sketch/" target="_blank"><img
-                src="./assets/pixels.png" alt="screenshot of PIXELS, a browser etch-a-sketch" /></a>
-            <div class="background scroll">
-              <h4>Pixels</h4>
-              <span>Beginner project using vanilla Javascript</span>
-            </div>
-          </div>
-          <div class="project scroll">
-            <a rel="noopener" href="https://ryantuckern.github.io/calculator/" target="_blank"><img
-                src="./assets/calculator.png" alt="screenshot of a simple calculator" /></a>
-            <div class="background scroll">
-              <h4>Calculator</h4>
-              <span>Built with vanilla JavaScript</span>
-            </div>
+          <div class="background scroll">
+            <h4>Pet Tinder Web App</h4>
+            <span>Tinder... but for dogs!</span>
           </div>
         </div>
+        <div class="project scroll">
+          <div class="project-box" />
+          <!-- <a rel="noopener" href="https://nick-tucker-bass.web.app/" target="_blank"> -->
+          <img src="./assets/ntb.png" alt="screenshot of musician Nick Tucker playing upright bass in a jazz club" />
+        </div>
+        <div class="background scroll">
+          <h4>Musician Website</h4>
+          <span>Static website build with React</span>
+        </div>
+      </div>
+      <div class="project scroll">
+        <div class="project-box" />
+        <!-- rel="noopener" href="https://giphy-search-engine.web.app/" target="_blank"> -->
+        <img src="./assets/GIPHY-api.png" alt="screenshot of gif search engine, purple with images of pizza" />
+      </div>
+      <div class="background scroll">
+        <h4>JavaScript API Project</h4>
+        <span>GIF search engine powered by GIPHY</span>
+      </div>
+      </div>
+      <div class="project scroll">
+        <div class="project-box" />
+        <!-- < rel="noopener" href="https://ryantuckern.github.io/etch-a-sketch/" target="_blank"> -->
+        <img src="./assets/pixels.png" alt="screenshot of PIXELS, a browser etch-a-sketch" />
+      </div>
+      <div class="background scroll">
+        <h4>Pixels</h4>
+        <span>Beginner project using vanilla Javascript</span>
+      </div>
+      </div>
+      <div class="project scroll">
+        <div class="project-box" />
+        <!-- <a rel="noopener" href="https://ryantuckern.github.io/calculator/" target="_blank"> -->
+        <img src="./assets/calculator.png" alt="screenshot of a simple calculator" />
+      </div>
+      <div class="background scroll">
+        <h4>Calculator</h4>
+        <span>Built with vanilla JavaScript</span>
+      </div>
+      </div>
+      </div>
       </div>
     </section>
     <section id="contact">
@@ -265,13 +265,16 @@
       </div>
     </section>
   </main>
-  <!-- <aside class="modal">
-    <div class="modal">
+  <div id="backdrop"></div>
+
+  <aside class="modal">
+    <div>
       <h4>FirstCall</h4>
+      <a rel="noopener" href="https://github.com/RyanTuckerN/first-call" target="_blank" title="&#x2197 Github Repo"><img id="github" src="./assets/github.svg" alt="GitHub Logo"></a>
       <p>
         <strong>FirstCall</strong> is a gig-mangament solution for freelance musicians.
         I designed and implemented the backend using Node.js, Express, PostgreSQL, and the
-        frontend with React. I spent about six weeks building this app from scratch.
+        frontend with React. I spent about six weeks planning and constructing this app from scratch.
       </p>
       <p>Additionally, I explored:</p>
       <ul>
@@ -280,7 +283,10 @@
         <li>Advanced Sequelize</li>
       </ul>
       <p><a href="https://firstcallapp.herokuapp.com" target="_blank">Click here</a> to explore the app!</p>
-      Feel free to sign in with the following credentials 
+      <br />
+      Feel free to sign in with the following credentials:
+      <br />
+      <br />
       <dl>
         <dt>Email:</dt>
         <dd>testuser@email.com</dd>
@@ -290,16 +296,107 @@
       <span>...please don't change these in the app!</span>
     </div>
     <button>Close</button>
-  </aside> -->
+  </aside>
+
+
+  <aside class="modal">
+    <div>
+      <h4>Pet Tinder</h4>
+      <a rel="noopener" href="https://github.com/RyanTuckerN/pet-tinder-server" target="_blank" title="&#x2197 Github Repo"><img id="github" src="./assets/github.svg" alt="GitHub Logo"></a>
+      <p>
+        <strong>Pet Tinder</strong> is an app for dog owners to find other "available" dogs for playdates.
+        It was a group project as part of 1150's Web Development bootcamp. This app was built using React, Node.js,
+        PostgreSQL, Express.
+      </p>
+      <p>Key Features:</p>
+      <ul>
+        <li>Real-time chat/alerts with <strong>socket.io</strong></li>
+        <li>Material UI styling library</li>
+        <li>Distance between dogs</li>
+        <li>"Matching" system, "paw" left or right to reject or accept a dog</li>
+      </ul>
+      <p><a href="https://tmor-pet-tinder-client.herokuapp.com/" target="_blank">Click here</a> to explore the app!</p>
+      <br />
+
+      Getting started is really quick, but if you want to just see what the app looks like, you can sign in with the
+      following credentials:
+      <br />
+      <br />
+      <dl>
+        <dt>Username:</dt>
+        <dd>sample_user</dd>
+        <dt>Password: </dt>
+        <dd>password</dd>
+      </dl>
+    </div>
+    <button>Close</button>
+  </aside>
+
+
+  <aside class="modal">
+    <div>
+      <h4>Musician Website</h4>
+      <a rel="noopener" href="https://github.com/RyanTuckerN/ntb-react" target="_blank" title="&#x2197 Github Repo"><img id="github" src="./assets/github.svg" alt="GitHub Logo"></a>
+      <p>
+        This is the first project I built with React. It is a static website for my music
+        career. It is simple, but I learned quite a bit about React and single-page-applications more broadly.
+      </p>
+      <p><a href="https://nick-tucker-bass.web.app/" target="_blank">Click here</a> to see the site!</p>
+
+    </div>
+    <button>Close</button>
+  </aside>
+
+
+  <aside class="modal">
+    <div>
+      <h4>GIPHY Search</h4>
+      <a rel="noopener" href="https://github.com/RyanTuckerN/giphy-api" target="_blank" title="&#x2197 Github Repo"><img id="github" src="./assets/github.svg" alt="GitHub Logo"></a>
+      <p>
+        This a search engine built with HTML, CSS, and JavaScript. It relies on the GIPHY API, and is a simple 
+        search engine. A user can search for any keyword return a selection of gifs. The GIPHY API also provides
+        a keyword suggestion endpoint, which I utilized to create a dynamic autocomplete using vanilla JS. I also 
+        built in pagination.
+      </p>
+      <p><a href="https://giphy-search-engine.web.app/" target="_blank">Click here</a> to explore the app!</p>
+    </div>
+    <button>Close</button>
+  </aside>
+
+
+  <aside class="modal">
+    <div>
+      <h4>PIXELS</h4>
+      <a rel="noopener" href="https://github.com/RyanTuckerN/etch-a-sketch" target="_blank" title="&#x2197 Github Repo"><img id="github" src="./assets/github.svg" alt="GitHub Logo"></a>
+      <p>
+        <strong>PIXELS</strong> is a simple browser game based on Etch-a-sketch. It offers two game modes,
+        and served as a great introduction to manipulation the Document Object Model with with DOM API. I was
+        inspired by an assignment included in <a href="https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/etch-a-sketch-project" target="_blank">The Odin Project</a> curriculum. 
+      </p>
+      <p>It is simple, but addictive... <a rel="noopener" href="https://ryantuckern.github.io/etch-a-sketch/" target="_blank">Have fun!</a></p>
+    </div>
+    <button>Close</button>
+  </aside>
+
+
+  <aside class="modal">
+    <div>
+      <h4>Calculator</h4>
+      <a rel="noopener" href="https://github.com/RyanTuckerN/calculator" target="_blank" title="&#x2197 Github Repo"><img id="github" src="./assets/github.svg" alt="GitHub Logo"></a>
+      <p>
+        This is a simple calculator. This is the first major scripting project I undertook. It helped show 
+        me the importance of planning and organization, and also exposed me to simple state mangament. If I were to rebuild it now, I would do 
+        many things differently, but I enjoyed building it!
+      </p>
+      <p><a rel="noopener" href="https://ryantuckern.github.io/calculator/" target="_blank">Click here</a> to see the calcultor in action!</p>
+
+    </div>
+    <button>Close</button>
+  </aside>
 
   <footer></footer>
 </body>
-<script>
-  // const modal = document.querySelector('.modal')
-  // setTimeout(() => {
-  //   modal.classList.add('active')
-  // }, 2000)
-</script>
+<script src="js/modals.js"></script>
 <script src="js/canvas.js"></script>
 <script src="js/headerLoad.js"></script>
 <script src="js/scroll.js"></script>
