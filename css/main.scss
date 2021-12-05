@@ -763,6 +763,7 @@ aside.modal{
   max-width: 95vw;
   background-color: #1f1f1f;
   position: fixed;
+  overflow: scroll;
   left: 50%;
   top: 50%;
   transform: translate(-50%, 50%);
