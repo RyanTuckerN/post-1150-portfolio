@@ -9,7 +9,6 @@ imageLinks.forEach((img, i) => {
     backdrop.classList.add('parent-disable')
     const closeButton = document.querySelectorAll(".modal button")
     closeButton.forEach(btn => {
-      console.log(btn)
       btn.style.cursor = 'pointer'
       btn.addEventListener('click', () => {
         modals[i].style.zIndex = 0;
