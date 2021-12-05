@@ -763,7 +763,8 @@ aside.modal{
   max-width: 95vw;
   background-color: #1f1f1f;
   position: fixed;
-  overflow: scroll;
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
   left: 50%;
   top: 50%;
   transform: translate(-50%, 50%);
