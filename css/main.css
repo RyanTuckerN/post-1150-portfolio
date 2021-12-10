@@ -40,6 +40,7 @@ button:hover,
 button:focus {
   -webkit-box-shadow: inset 8em 0 0 0 #fd2155;
           box-shadow: inset 8em 0 0 0 #fd2155;
+  cursor: pointer;
 }
 
 .primary {
